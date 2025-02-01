@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"Cython",
+			"deepseek",
+			"distro",
+			"jsonify",
+			"localchat",
+			"lowend",
+			"lowendllm",
+			"ollama",
+			"venv",
+			"webfrontend"
+		]
+	}
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Web Interface</title>
+    <script src="https://cdn.jsdelivr.net/npm/unpoly@3.10.1/unpoly.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/unpoly@3.10.1/unpoly.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ollama AI Interface</h1>
+
+<div id="input-form">
+    <textarea id="input-text" placeholder="Enter your prompt here..." rows="4" cols="50"></textarea><br>
+    <button id="generate-btn">Generate Response</button>
+</div>
+
+<div id="output"></div>
+<div id="error"></div>
+
+<script>
+    document.getElementById('generate-btn').addEventListener('click', async function() {
+        const userInput = document.getElementById('input-text').value;
+        if (!userInput) {
+            alert("Please enter some text.");
+            return;
+        }
+
+        try {
+            document.getElementById('error').innerHTML = "constructing request...";
+            const response = await up.request('http://localhost:5000/generate', {
+                // method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ input: userInput })
+            });
+            document.getElementById('error').innerHTML = "waiting for response...";
+
+            const result = await response.json();
+
+            document.getElementById('error').innerHTML = "checking response...";
+
+            if (response.ok) {
+                document.getElementById('error').innerHTML = "checking response...ok...";
+                document.getElementById('output').innerHTML = result.generated_text;
+                document.getElementById('error').innerHTML = "checking response...ok...response shown.";
+                document.getElementById('output').hidden = false;
+                // document.getElementById('error').hidden = true;
+            } else {
+                document.getElementById('error').innerHTML = result.error || "An error occurred.";
+                document.getElementById('error').hidden = false;
+                document.getElementById('output').hidden = true;
+            }
+        } catch (error) {
+            console.error(error);
+            document.getElementById('output').innerHTML =  (typeof error === 'object' ? JSON.stringify(error) : error);
+            document.getElementById('error').innerHTML = "Failed to connect to the server. ";
+            document.getElementById('error').hidden = false;
+            document.getElementById('output').hidden = false;
+        }
+    });
+</script>
+
+</body>
+</html>
