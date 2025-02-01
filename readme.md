@@ -28,7 +28,7 @@ ollama run deepseek-r1
   information. See Ollama's documentation to see if there are any other
   ways there may be data leakage in your version and update it if
   necessary.
-- IANAL. See [license](LICENSE) for license including disclaimers.
+- IANAL. See [license](license.txt) for license including disclaimers.
 
 ## Known Issues
 See
