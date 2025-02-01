@@ -1,13 +1,19 @@
 # lowend-llm
 Chat with your own bot! Avoid giving your data away to cloud entities.
 
-NOTE: The web interface does not work in this version.
+NOTE: The web interface does not work in this version (The webAPI on port 5000 and webfrontend-cli scripts work, but the frontend on port 8080 does not).
 
 ## Install
-- install Python 3 or later
-- install Ollama
-- install git
-- Open a Terminal and enter:
+- install Python 3 or later from [python.org](https://python.org)
+  - Linux: use the Software icon (or `sudo apt install python3` on deb-based distros)
+- install Ollama from [ollama.com/download](https://ollama.com/download)
+  - Linux:
+    - `curl -fsSL https://ollama.com/install.sh | sh`
+      or `snap install ollama`
+    - `sudo systemctl start ollama --now`
+- install git from [git-scm.com/downloads](https://git-scm.com/downloads)
+  - Linux: use the Software icon (or `sudo apt install git` on deb-based distros)
+- Open a Terminal (called PowerShell on Windows 10 or earlier) and enter:
 ```bash
 ollama pull deepseek-r1
 git clone https://github.com/Hierosoft/lowend-llm.git lowend-llm
@@ -31,6 +37,8 @@ Otherwise, if using Windows, open a Terminal (called PowerShell on Windows 10 or
 .\.venv\Scripts\pip install -r requirements.txt
 ```
 or if using Linux/macOS and you don't want to do it the easy way with precompiled packages:
+- Install your distro's C developer tools metapackage (such as `sudo apt install build-essential` on deb-based distros or `sudo dnf groupinstall "Development Tools"` on rpm-based distros), or manually install packages for the GNU toolchain.
+- Go to a Terminal and run:
 ```bash
 .venv/bin/pip install -r requirements.txt
 ```
