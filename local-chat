@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ ! -d .venv ]; then
+    >&2 echo "Error: You must first setup .venv according to the readme."
+    exit 1
+fi
+
+./.venv/bin/python local-chat.py "$@"

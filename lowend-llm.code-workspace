@@ -9,10 +9,13 @@
 			"Cython",
 			"deepseek",
 			"distro",
+			"distros",
+			"groupinstall",
 			"jsonify",
 			"localchat",
 			"lowend",
 			"lowendllm",
+			"metapackage",
 			"ollama",
 			"venv",
 			"webfrontend"

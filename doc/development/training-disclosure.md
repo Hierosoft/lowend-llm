@@ -64,3 +64,23 @@ Correctly utilize the error when it is an object rather than a string. All we se
 Make the backend app.py file accept POST. The console on the server says "127.0.0.1 - - [31/Jan/2025 19:30:31] code 501, message Unsupported method ('POST')". Here is the current version of app.py:
 
 - paste app.py with additions for logging
+
+- Used search.brave.com LLM to convert from the sample curl command on the ollama website to PowerShell and Python.
+
+- Made manual changes to fix scripts to work with the lowend-llm web API.
+
+- back in ChatGPT later:
+
+Convert this bash script to PowerShell:
+```
+#!/bin/bash
+if [ ! -d .venv ]; then
+    >&2 echo "Error: You must first setup .venv according to the readme."
+    exit 1
+fi
+./.venv/bin/python local-chat.py
+```
+
+pass along all the user's arguments used to call the PowerShell script along to the python script.
+
+Now fix the bash script the same way

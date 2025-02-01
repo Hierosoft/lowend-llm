@@ -1,0 +1,1 @@
+ollama_model_name = "deepseek-r1"

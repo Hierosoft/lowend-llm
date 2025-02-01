@@ -34,3 +34,24 @@ or if using Linux/macOS and you don't want to do it the easy way with precompile
 ```bash
 .venv/bin/pip install -r requirements.txt
 ```
+
+## Use
+- Open a terminal and enter:
+```bash
+cd lowend-llm
+# Make sure you are in the directory before continuing.
+```
+
+When using the local-chat command, replace
+"filename or question" in the example with your question or a filename
+containing only your full question such as a multiline question.
+
+Then if using Linux or macOS:
+```bash
+./local-chat filename or question
+```
+
+Or in Windows Terminal:
+```PowerShell
+.\local-chat.ps1 filename or question
+```
